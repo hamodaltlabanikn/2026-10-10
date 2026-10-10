@@ -1,0 +1,1396 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Code a Wish — يوم المبرمج العراقي 10.10</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzA1MDgwNiIvPgogIDxyZWN0IHg9IjEuMjUiIHk9IjEuMjUiIHdpZHRoPSI2MS41IiBoZWlnaHQ9IjYxLjUiIHJ4PSIxMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBmNjc5IiBzdHJva2Utb3BhY2l0eT0iMC41NSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBmNjc5IiBzdHJva2Utd2lkdGg9IjUuNSIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciI+CiAgICA8cGF0aCBkPSJNMTYgMjMgTDIyIDE3IFY0NSIvPgogICAgPHJlY3QgeD0iMzAiIHk9IjE3IiB3aWR0aD0iMTciIGhlaWdodD0iMjgiIHJ4PSI4LjUiLz4KICA8L2c+Cjwvc3ZnPgo="
+    />
+    <meta
+      name="description"
+      content="اصنع بطاقة تهنئة مميزة ليوم المبرمج العراقي 10.10، وخصّص رسالتك ونزّلها كصورة."
+    />
+    <meta property="og:title" content="Code a Wish — يوم المبرمج العراقي" />
+    <meta property="og:description" content="أمنية صغيرة. أثر كبير. بطاقة تهنئة بطابع البرمجة." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      :root {
+        --bg: oklch(0.13 0.008 160);
+        --surface: oklch(0.17 0.008 160);
+        --card: oklch(0.15 0.012 160);
+        --ink: oklch(0.96 0.008 160);
+        --muted: oklch(0.61 0.015 160);
+        --green: oklch(0.85 0.23 151);
+        --green-ink: oklch(0.16 0.03 150);
+        --line: oklch(0.27 0.012 160);
+        --red: oklch(0.7 0.19 25);
+        --yellow: oklch(0.84 0.14 85);
+        --blue: oklch(0.78 0.12 220);
+        --shadow: 0 0 65px oklch(0.85 0.23 151 / 0.07);
+        --font: Tahoma, Arial, sans-serif;
+        --mono: "Courier New", monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 30px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 14px var(--font);
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+      button,
+      a,
+      input,
+      textarea,
+      select {
+        outline-offset: 5px;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        color: var(--ink);
+        background: none;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      button:hover {
+        border-color: var(--green);
+      }
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid var(--green);
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: auto;
+        padding: 0 30px;
+      }
+      .top {
+        border-bottom: 1px solid var(--line);
+      }
+      header {
+        height: 84px;
+        display: flex;
+        direction: ltr;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-family: var(--mono);
+        font-size: 20px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .brand-symbol {
+        color: var(--green);
+        font-size: 27px;
+      }
+      .brand small {
+        color: var(--green);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        direction: rtl;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      nav a:hover {
+        color: var(--green);
+      }
+      .nav-date {
+        font: 12px var(--mono);
+        padding: 9px 13px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        color: var(--green);
+      }
+      .intro {
+        text-align: center;
+        padding: 52px 0 36px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 12px;
+        color: var(--green);
+      }
+      .dot {
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 10px var(--green);
+      }
+      h1 {
+        direction: ltr;
+        font: bold 76px/1.1 var(--mono);
+        margin: 21px 0 18px;
+        letter-spacing: 0;
+      }
+      h1 span {
+        color: var(--green);
+      }
+      .intro h2 {
+        font-size: 23px;
+        font-weight: 500;
+        margin: 0 0 14px;
+      }
+      .intro p {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.9;
+        margin: 0;
+      }
+      .intro .code-label {
+        font: 11px var(--mono);
+        color: var(--muted);
+        margin-top: 22px;
+        direction: ltr;
+      }
+      .code-label b {
+        color: var(--green);
+        font-weight: normal;
+      }
+      .studio-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 10px 0 17px;
+      }
+      .studio-title h2 {
+        font-size: 15px;
+        margin: 0;
+        font-weight: 500;
+      }
+      .live {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .studio {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        direction: ltr;
+        gap: 22px;
+      }
+      .controls,
+      .preview-shell {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        min-width: 0;
+      }
+      .controls {
+        direction: rtl;
+      }
+      .panel-head {
+        padding: 19px 22px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .panel-head strong {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .panel-head span {
+        font: 11px var(--mono);
+        color: var(--muted);
+      }
+      .form-body {
+        padding: 22px;
+      }
+      .field {
+        margin-bottom: 19px;
+      }
+      label,
+      .field-title {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 10px;
+        color: var(--ink);
+      }
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 13px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        border-radius: 5px;
+        color: var(--ink);
+        font-size: 12px;
+      }
+      input::placeholder {
+        color: var(--muted);
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--green);
+        outline: none;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 96px;
+        line-height: 1.9;
+      }
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .counter {
+        direction: ltr;
+        display: block;
+        text-align: left;
+        color: var(--muted);
+        font: 10px var(--mono);
+        margin-top: 7px;
+      }
+      .segments {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .segments button {
+        padding: 9px 4px;
+        font-size: 11px;
+      }
+      .segments button[aria-pressed="true"] {
+        color: var(--green);
+        border-color: var(--green);
+        background: color-mix(in oklch, var(--green) 7%, var(--bg));
+      }
+      .colors {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .swatch {
+        width: 25px;
+        height: 25px;
+        border: 4px solid var(--surface);
+        border-radius: 50%;
+        outline: 1px solid var(--line);
+        background: var(--green);
+      }
+      .swatch[data-color="cyan"] {
+        background: var(--blue);
+      }
+      .swatch[data-color="amber"] {
+        background: var(--yellow);
+      }
+      .swatch[aria-pressed="true"] {
+        outline: 1px solid var(--ink);
+      }
+      .color-label {
+        font: 10px var(--mono);
+        color: var(--muted);
+        margin-right: auto;
+      }
+      .range-head {
+        display: flex;
+        justify-content: space-between;
+      }
+      .range-head output {
+        color: var(--muted);
+        font: 11px var(--mono);
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--green);
+        height: 4px;
+      }
+      .reset {
+        width: 100%;
+        padding: 12px;
+        font-size: 12px;
+        color: var(--muted);
+        border-style: dashed;
+      }
+      .preview-shell {
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+      }
+      .preview-head {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px 22px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .preview-head span:last-child {
+        font: 10px var(--mono);
+      }
+      .canvas-area {
+        padding: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        background-image: radial-gradient(var(--line) 0.6px, transparent 0.6px);
+        background-size: 12px 12px;
+      }
+      .wish-card {
+        --card-accent: var(--green);
+        width: 100%;
+        aspect-ratio: 1.25;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid color-mix(in oklch, var(--card-accent) 32%, var(--line));
+        border-radius: 7px;
+        background: var(--card);
+        padding: 27px 30px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .wish-card:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.22;
+        pointer-events: none;
+      }
+      .wish-card > * {
+        z-index: 1;
+        position: relative;
+      }
+      .card-top {
+        display: flex;
+        direction: ltr;
+        justify-content: space-between;
+        align-items: center;
+        font: 10px var(--mono);
+        color: var(--muted);
+      }
+      .window-dots {
+        display: flex;
+        gap: 5px;
+      }
+      .window-dots i {
+        width: 6px;
+        height: 6px;
+        background: var(--red);
+        border-radius: 50%;
+      }
+      .window-dots i:nth-child(2) {
+        background: var(--yellow);
+      }
+      .window-dots i:nth-child(3) {
+        background: var(--green);
+      }
+      .card-center {
+        text-align: center;
+      }
+      .card-kicker {
+        font: 10px var(--mono);
+        color: var(--card-accent);
+        direction: ltr;
+        margin-top: 14px;
+      }
+      .date-art {
+        font: bold 94px/1.1 var(--mono);
+        direction: ltr;
+        color: var(--card-accent);
+        margin: 10px 0 11px;
+        text-shadow: 0 0 25px color-mix(in oklch, var(--card-accent) 20%, transparent);
+      }
+      .card-center h3 {
+        margin: 0 0 15px;
+        font-size: 23px;
+        font-weight: 500;
+      }
+      .recipient {
+        color: var(--card-accent);
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .message {
+        font-size: 17px;
+        line-height: 1.9;
+        max-width: 460px;
+        margin: 0 auto;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .card-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-top: 20px;
+        gap: 12px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .card-bottom .signature {
+        color: var(--ink);
+        overflow-wrap: anywhere;
+        max-width: 55%;
+      }
+      .card-bottom small {
+        font: 9px var(--mono);
+        direction: ltr;
+        color: var(--card-accent);
+      }
+      .terminal-code {
+        display: none;
+        color: var(--card-accent);
+        font: 12px/1.8 var(--mono);
+        direction: ltr;
+        white-space: pre-wrap;
+        text-align: left;
+        margin: 10px 0;
+      }
+      .wish-card[data-template="terminal"] .terminal-code {
+        display: block;
+      }
+      .wish-card[data-template="terminal"] .date-art {
+        font-size: 64px;
+        margin: 0;
+      }
+      .wish-card[data-template="minimal"]:before {
+        display: none;
+      }
+      .wish-card[data-template="minimal"] .date-art {
+        font-weight: normal;
+      }
+      .wish-card[data-template="minimal"] .card-kicker {
+        margin-bottom: 22px;
+      }
+      .preview-actions {
+        padding: 18px 22px;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 10px;
+      }
+      .primary {
+        border-color: var(--green);
+        background: var(--green);
+        color: var(--green-ink);
+        font-weight: bold;
+        padding: 13px 16px;
+        font-size: 12px;
+        display: flex;
+        gap: 9px;
+        justify-content: center;
+        align-items: center;
+      }
+      .primary:hover {
+        filter: brightness(1.08);
+      }
+      .icon-btn {
+        width: 43px;
+        height: 43px;
+        display: grid;
+        place-items: center;
+      }
+      .icon {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .under-preview {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font: 10px var(--mono);
+        direction: ltr;
+        text-align: center;
+      }
+      .templates-section {
+        padding-top: 58px;
+        padding-bottom: 48px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 21px;
+      }
+      .section-head h2 {
+        font-size: 21px;
+        font-weight: 500;
+        margin: 0 0 9px;
+      }
+      .section-head p {
+        color: var(--muted);
+        font-size: 12px;
+        margin: 0;
+      }
+      .section-head span {
+        font: 10px var(--mono);
+        color: var(--green);
+      }
+      .templates-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 17px;
+      }
+      .template-item {
+        text-align: right;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        overflow: hidden;
+        padding: 0;
+        background: var(--surface);
+      }
+      .template-item[aria-pressed="true"] {
+        border-color: var(--green);
+      }
+      .mini {
+        height: 153px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--card);
+        color: var(--green);
+        position: relative;
+      }
+      .mini.grid {
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 22px 22px;
+      }
+      .mini strong {
+        font: bold 52px var(--mono);
+      }
+      .mini small {
+        font: 9px var(--mono);
+      }
+      .mini.terminal {
+        align-items: start;
+        padding: 22px 33px;
+        font: 12px/1.8 var(--mono);
+        direction: ltr;
+      }
+      .mini.minimal strong {
+        font-weight: normal;
+      }
+      .template-caption {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+      }
+      .template-caption small {
+        color: var(--muted);
+        font: 10px var(--mono);
+      }
+      .about {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 34px 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 28px;
+      }
+      .about h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 12px;
+      }
+      .about p {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 2;
+        margin: 0;
+        max-width: 650px;
+      }
+      .about-date {
+        font: bold 43px var(--mono);
+        color: var(--green);
+        direction: ltr;
+      }
+      .about-date small {
+        display: block;
+        font: 9px var(--mono);
+        text-align: center;
+        color: var(--muted);
+        margin-top: 7px;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 25px 0;
+        color: var(--muted);
+        font-size: 10px;
+      }
+      footer span:last-child {
+        font-family: var(--mono);
+        direction: ltr;
+      }
+      .toast {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 24px;
+        background: var(--surface);
+        border: 1px solid var(--green);
+        border-radius: 6px;
+        color: var(--ink);
+        z-index: 20;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .toast[hidden] {
+        display: none;
+      }
+      dialog {
+        background: var(--bg);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        width: min(760px, 95vw);
+        padding: 22px;
+      }
+      dialog::backdrop {
+        background: oklch(0.1 0 0 / 0.85);
+      }
+      .dialog-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .dialog-head button {
+        padding: 8px 12px;
+      }
+      .dialog-card .wish-card {
+        max-width: 650px;
+        margin: auto;
+      }
+      @media (min-width: 1000px) {
+        .controls {
+          min-height: 594px;
+        }
+        .wish-card {
+          min-height: 430px;
+        }
+      }
+      @media (max-width: 800px) {
+        .studio {
+          grid-template-columns: 300px minmax(0, 1fr);
+          gap: 14px;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .canvas-area {
+          padding: 16px;
+        }
+        .wish-card {
+          padding: 20px;
+          aspect-ratio: auto;
+          min-height: 400px;
+        }
+        .date-art {
+          font-size: 67px;
+        }
+        .message {
+          font-size: 15px;
+        }
+        .card-center h3 {
+          font-size: 19px;
+        }
+        .preview-actions {
+          padding: 16px;
+          gap: 7px;
+        }
+        .form-body {
+          padding: 18px;
+        }
+      }
+      @media (max-width: 650px) {
+        header {
+          height: 70px;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 12px;
+        }
+        .brand {
+          font-size: 15px;
+          gap: 6px;
+        }
+        .brand-symbol {
+          font-size: 21px;
+        }
+        nav {
+          gap: 14px;
+          font-size: 11px;
+        }
+        .nav-date,
+        nav a:last-of-type {
+          display: none;
+        }
+        .intro {
+          padding: 36px 0 28px;
+        }
+        h1 {
+          font-size: 43px;
+          margin: 19px 0 16px;
+        }
+        .intro h2 {
+          font-size: 18px;
+        }
+        .intro p {
+          font-size: 11px;
+          max-width: 310px;
+          margin: auto;
+        }
+        .studio {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .preview-column {
+          grid-row: 1;
+        }
+        .canvas-area {
+          padding: 16px;
+        }
+        .wish-card {
+          min-height: 365px;
+          aspect-ratio: 1.05;
+          padding: 23px;
+        }
+        .date-art {
+          font-size: 80px;
+        }
+        .card-center h3 {
+          font-size: 21px;
+        }
+        .message {
+          font-size: 16px;
+        }
+        .templates-grid {
+          grid-template-columns: 1fr;
+        }
+        .mini {
+          height: 160px;
+        }
+        .templates-section {
+          padding-top: 38px;
+        }
+        .section-head span {
+          display: none;
+        }
+        .about {
+          gap: 17px;
+        }
+        .about-date {
+          font-size: 31px;
+        }
+        .about h2 {
+          font-size: 16px;
+        }
+        .about p {
+          font-size: 11px;
+        }
+        footer {
+          line-height: 1.8;
+          flex-direction: column;
+          align-items: center;
+        }
+        .wrap {
+          padding: 0 17px;
+        }
+        .under-preview {
+          font-size: 9px;
+        }
+        .studio-title h2 {
+          font-size: 13px;
+        }
+        .live {
+          font-size: 10px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Implementation plan: 1. Semantic RTL page and responsive token-based design. 2. Live card editor with three templates and color/text controls. 3. Canvas PNG export and native sharing with clipboard fallback. 4. Local-file and mobile checks. Deployment: open this file directly or upload it as index.html to any static host. No dependencies, API keys, external assets, or installation required. -->
+    <div class="top">
+      <header class="wrap">
+        <a class="brand" href="#"
+          ><span class="brand-symbol">&lt;/&gt;</span
+          ><span>code<span style="color: var(--green)">a</span>wish<small>_</small></span></a
+        >
+        <nav aria-label="التنقل الرئيسي">
+          <a href="#studio">اصنع بطاقتك</a><a href="#templates">القوالب</a
+          ><a href="#about">عن المناسبة</a><span class="nav-date">10.10 / IRAQ</span>
+        </nav>
+      </header>
+    </div>
+    <main class="wrap">
+      <section class="intro">
+        <div class="eyebrow"><span class="dot"></span>10 أكتوبر · يوم المبرمج العراقي</div>
+        <h1>
+          Code a <span>Wish<span aria-hidden="true">_</span></span>
+        </h1>
+        <h2>سطر كود. كلمة حلوة. أثر كبير.</h2>
+        <p>
+          إلى من يحوّل الأفكار إلى واقع — أرسل تهنئة تشبهه.<br />اصنع بطاقتك ليوم المبرمج العراقي،
+          بطريقتك.
+        </p>
+        <div class="code-label">
+          <b>&lt;wish&gt;</b> made with code, sent with love <b>&lt;/wish&gt;</b>
+        </div>
+      </section>
+      <section id="studio" aria-label="إنشاء بطاقة">
+        <div class="studio-title">
+          <h2><span style="color: var(--green)">⌘</span> مساحة الإبداع</h2>
+          <div class="live"><span class="dot"></span>معاينة مباشرة</div>
+        </div>
+        <div class="studio">
+          <aside class="controls">
+            <div class="panel-head"><strong>خصّص تهنئتك</strong><span>// make it yours</span></div>
+            <div class="form-body">
+              <div class="field">
+                <span class="field-title">قالب البطاقة</span>
+                <div class="segments" aria-label="قالب البطاقة">
+                  <button data-template="digital" aria-pressed="true">رقمي</button
+                  ><button data-template="terminal" aria-pressed="false">تيرمنال</button
+                  ><button data-template="minimal" aria-pressed="false">بسيط</button>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="recipient">إلى المبرمج / المبرمجة</label
+                  ><input
+                    id="recipient"
+                    type="text"
+                    maxlength="35"
+                    placeholder="اسم صاحب التهنئة"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="field">
+                  <label for="sender">من</label
+                  ><input
+                    id="sender"
+                    type="text"
+                    maxlength="35"
+                    placeholder="اسمك"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="message">رسالة التهنئة</label
+                ><textarea id="message" maxlength="180">
+كل عام وأنت تكتب للمستقبل سطرًا جديدًا.
+كودك يصنع الفرق، وشغفك يلهمنا 💚</textarea
+                ><span class="counter"><span id="count">0</span> / 180</span>
+              </div>
+              <div class="field">
+                <label for="preset">أو اختر أمنية جاهزة</label
+                ><select id="preset">
+                  <option value="">رسالة مخصّصة</option>
+                  <option value="future">إلى صانع المستقبل</option>
+                  <option value="bugs">تهنئة بلا أخطاء</option>
+                  <option value="dream">من فكرة إلى واقع</option>
+                </select>
+              </div>
+              <div class="field">
+                <span class="field-title">لون التفاصيل</span>
+                <div class="colors">
+                  <button
+                    class="swatch"
+                    data-color="green"
+                    aria-label="أخضر رقمي"
+                    aria-pressed="true"
+                  ></button
+                  ><button
+                    class="swatch"
+                    data-color="cyan"
+                    aria-label="سماوي"
+                    aria-pressed="false"
+                  ></button
+                  ><button
+                    class="swatch"
+                    data-color="amber"
+                    aria-label="ذهبي"
+                    aria-pressed="false"
+                  ></button
+                  ><span class="color-label" id="colorName">DIGITAL GREEN</span>
+                </div>
+              </div>
+              <div class="field">
+                <div class="range-head">
+                  <label for="fontSize">حجم الرسالة</label><output id="sizeValue">17 px</output>
+                </div>
+                <input id="fontSize" type="range" min="13" max="22" value="17" />
+              </div>
+              <button class="reset" id="reset">↺ &nbsp; إعادة تعيين</button>
+            </div>
+          </aside>
+          <div class="preview-column">
+            <div class="preview-shell">
+              <div class="preview-head">
+                <span>بطاقتك، بلمستك</span><span>card_preview.png</span>
+              </div>
+              <div class="canvas-area">
+                <article
+                  class="wish-card"
+                  id="card"
+                  data-template="digital"
+                  aria-label="معاينة بطاقة التهنئة"
+                >
+                  <div class="card-top">
+                    <div class="window-dots"><i></i><i></i><i></i></div>
+                    <span>iraqi_programmer_day.exe</span><span>&lt;/&gt;</span>
+                  </div>
+                  <div class="card-center">
+                    <div class="card-kicker">// HELLO, WORLD. HELLO, IRAQ.</div>
+                    <div class="date-art">10.10</div>
+                    <h3>يوم المبرمج العراقي</h3>
+                    <div class="terminal-code" id="terminalCode"></div>
+                    <div class="recipient" id="cardRecipient" hidden></div>
+                    <p class="message" id="cardMessage"></p>
+                  </div>
+                  <div class="card-bottom">
+                    <span class="signature" id="cardSender">صُنعت بشغف، وأُرسلت بمحبة</span
+                    ><small>&lt; code a wish /&gt;</small>
+                  </div>
+                </article>
+              </div>
+              <div class="preview-actions">
+                <button class="primary" id="download">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" /></svg
+                  >تنزيل البطاقة <span dir="ltr">PNG</span></button
+                ><button
+                  class="icon-btn"
+                  id="share"
+                  aria-label="مشاركة التهنئة"
+                  title="مشاركة التهنئة"
+                >
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="18" cy="5" r="3" />
+                    <circle cx="6" cy="12" r="3" />
+                    <circle cx="18" cy="19" r="3" />
+                    <path d="m9 10 6-4m-6 8 6 4" />
+                  </svg></button
+                ><button
+                  class="icon-btn"
+                  id="expand"
+                  aria-label="تكبير البطاقة"
+                  title="تكبير البطاقة"
+                >
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="under-preview">100% YOUR WISH. &nbsp; NO SIGN-UP. &nbsp; JUST GOOD VIBES.</p>
+          </div>
+        </div>
+      </section>
+      <section class="templates-section" id="templates">
+        <div class="section-head">
+          <div>
+            <h2>لكل مبرمج، أسلوبه.</h2>
+            <p>ثلاث بدايات مختلفة، وأمنية واحدة جميلة.</p>
+          </div>
+          <span>// CHOOSE YOUR VIBE</span>
+        </div>
+        <div class="templates-grid">
+          <button class="template-item" data-template="digital" aria-pressed="true">
+            <div class="mini grid">
+              <small>// HELLO, WORLD.</small><strong>10.10</strong><span>يوم المبرمج العراقي</span>
+            </div>
+            <div class="template-caption"><span>01 — رقمي</span><small>DIGITAL</small></div></button
+          ><button class="template-item" data-template="terminal" aria-pressed="false">
+            <div class="mini terminal">
+              <span
+                ><span style="color: var(--muted)">$</span> run celebration.js<br />&gt; Happy
+                Programmer's Day<br />&gt; bugs: 0, dreams: ∞<br />&gt;
+                <span style="color: var(--ink)">wish sent successfully_</span></span
+              >
+            </div>
+            <div class="template-caption">
+              <span>02 — تيرمنال</span><small>TERMINAL</small>
+            </div></button
+          ><button class="template-item" data-template="minimal" aria-pressed="false">
+            <div class="mini minimal">
+              <small>LESS CODE. MORE LOVE.</small
+              ><strong>10.10<span style="color: var(--ink)">.</span></strong
+              ><span>أنت تكتب المستقبل.</span>
+            </div>
+            <div class="template-caption"><span>03 — بسيط</span><small>MINIMAL</small></div>
+          </button>
+        </div>
+      </section>
+      <section class="about" id="about">
+        <div>
+          <h2>من العراق، إلى كل من يكتب المستقبل.</h2>
+          <p>
+            في 10.10 نحتفي بشغف المبرمج العراقي؛ بالأفكار التي تبدأ صغيرة، وبالساعات التي تصنع
+            فرقًا. هذه المساحة لأمنية تصل، وابتسامة تبقى.
+          </p>
+        </div>
+        <div class="about-date">10.10<small>IRAQI PROGRAMMER DAY</small></div>
+      </section>
+      <footer>
+        <span>صُنع بشغف للمبرمجين العراقيين 💚</span><span>&lt;/&gt; Code a Wish · 2026</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <dialog id="modal">
+      <div class="dialog-head">
+        <span>بطاقة التهنئة</span><button id="closeModal" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="dialog-card" id="largeCard"></div>
+    </dialog>
+    <script>
+      (() => {
+        "use strict";
+        const $ = (id) => document.getElementById(id);
+        const initial = $("message").value;
+        $("terminalCode").textContent = `const wish = {
+  passion: "unlimited",
+  bugs: 0,
+  dreams: Infinity
+};`;
+        let template = "digital",
+          color = "green",
+          toastTimer;
+        const colors = {
+          green: ["--green", "DIGITAL GREEN"],
+          cyan: ["--blue", "CYBER CYAN"],
+          amber: ["--yellow", "WARM GOLD"],
+        };
+        const presets = {
+          future: initial,
+          bugs: "أتمنى لك عامًا بلا أخطاء، وأفكارًا بلا حدود.\nكل عام وأنت مبدع، يا صانع المستقبل! 💚",
+          dream: "من أول سطر كود إلى أكبر حلم،\nأنت تصنع المستحيل. يوم مبرمج سعيد! 💚",
+        };
+        function toast(text) {
+          $("toast").textContent = text;
+          $("toast").hidden = false;
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => ($("toast").hidden = true), 3500);
+        }
+        function update() {
+          $("cardMessage").textContent = $("message").value;
+          $("cardRecipient").textContent = $("recipient").value
+            ? "إلى " + $("recipient").value
+            : "";
+          $("cardRecipient").hidden = !$("recipient").value;
+          $("cardSender").textContent = $("sender").value
+            ? "بكل محبة، " + $("sender").value
+            : "صُنعت بشغف، وأُرسلت بمحبة";
+          $("count").textContent = $("message").value.length;
+          $("sizeValue").textContent = $("fontSize").value + " px";
+          $("cardMessage").style.fontSize = $("fontSize").value + "px";
+          $("card").dataset.template = template;
+          $("card").style.setProperty("--card-accent", "var(" + colors[color][0] + ")");
+          const card = $("card");
+          card.style.minHeight = "";
+          const pad = Number.parseFloat(getComputedStyle(card).paddingBottom) || 0;
+          const needed = card.scrollHeight + pad;
+          if (needed > card.clientHeight) card.style.minHeight = needed + "px";
+          $("colorName").textContent = colors[color][1];
+          document.querySelectorAll("[data-template]").forEach((el) => {
+            if (el.tagName === "BUTTON")
+              el.setAttribute("aria-pressed", String(el.dataset.template === template));
+          });
+          document
+            .querySelectorAll("[data-color]")
+            .forEach((el) => el.setAttribute("aria-pressed", String(el.dataset.color === color)));
+        }
+        ["recipient", "sender", "message", "fontSize"].forEach((id) =>
+          $(id).addEventListener("input", () => {
+            if (id === "message") $("preset").value = "";
+            update();
+          }),
+        );
+        document.querySelectorAll("button[data-template]").forEach((el) =>
+          el.addEventListener("click", () => {
+            template = el.dataset.template;
+            update();
+          }),
+        );
+        document.querySelectorAll("[data-color]").forEach((el) =>
+          el.addEventListener("click", () => {
+            color = el.dataset.color;
+            update();
+          }),
+        );
+        $("preset").addEventListener("change", () => {
+          if (presets[$("preset").value]) $("message").value = presets[$("preset").value];
+          update();
+        });
+        $("reset").addEventListener("click", () => {
+          template = "digital";
+          color = "green";
+          $("recipient").value = "";
+          $("sender").value = "";
+          $("message").value = initial;
+          $("preset").value = "";
+          $("fontSize").value = "17";
+          update();
+          toast("عدنا إلى البداية، لأمنية جديدة");
+        });
+        $("expand").addEventListener("click", () => {
+          $("largeCard").replaceChildren($("card").cloneNode(true));
+          $("largeCard")
+            .querySelectorAll("[id]")
+            .forEach((el) => el.removeAttribute("id"));
+          $("modal").showModal();
+        });
+        $("closeModal").addEventListener("click", () => $("modal").close());
+        $("modal").addEventListener("click", (event) => {
+          if (event.target === $("modal")) {
+            const r = $("modal").getBoundingClientRect();
+            if (
+              event.clientX < r.left ||
+              event.clientX > r.right ||
+              event.clientY < r.top ||
+              event.clientY > r.bottom
+            )
+              $("modal").close();
+          }
+        });
+        function textLines(ctx, text, width) {
+          const lines = [];
+          for (const paragraph of text.split("\n")) {
+            let line = "";
+            for (const word of paragraph.split(" ")) {
+              if (ctx.measureText(word).width > width) {
+                if (line) {
+                  lines.push(line);
+                  line = "";
+                }
+                let part = "";
+                for (const character of word) {
+                  if (ctx.measureText(part + character).width > width) {
+                    lines.push(part);
+                    part = character;
+                  } else part += character;
+                }
+                line = part;
+                continue;
+              }
+              const next = line ? line + " " + word : word;
+              if (ctx.measureText(next).width > width && line) {
+                lines.push(line);
+                line = word;
+              } else line = next;
+            }
+            lines.push(line);
+          }
+          return lines;
+        }
+        function canvasCard() {
+          const c = document.createElement("canvas");
+          c.width = 1200;
+          const ctx = c.getContext("2d");
+          if (!ctx) throw new Error("canvas");
+          const styles = getComputedStyle(document.documentElement);
+          const token = (name) => styles.getPropertyValue(name).trim();
+          const accent = token(colors[color][0]);
+          const font = Number($("fontSize").value) * 2.4;
+          ctx.font = font + "px Tahoma, Arial";
+          const lines = textLines(ctx, $("message").value, 990);
+          const messageY = template === "terminal" ? 525 : 450;
+          const lineHeight = font * 1.8;
+          c.height = Math.max(960, messageY + lines.length * lineHeight + 145);
+          ctx.fillStyle = token("--card");
+          ctx.fillRect(0, 0, c.width, c.height);
+          if (template !== "minimal") {
+            ctx.strokeStyle = token("--line");
+            ctx.globalAlpha = 0.35;
+            ctx.lineWidth = 1;
+            for (let n = 0; n < Math.max(c.height, c.width); n += 64) {
+              ctx.beginPath();
+              ctx.moveTo(n, 0);
+              ctx.lineTo(n, c.height);
+              ctx.moveTo(0, n);
+              ctx.lineTo(c.width, n);
+              ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+          }
+          ctx.strokeStyle = accent;
+          ctx.lineWidth = 2;
+          ctx.strokeRect(25, 25, 1150, c.height - 50);
+          [token("--red"), token("--yellow"), token("--green")].forEach((v, i) => {
+            ctx.fillStyle = v;
+            ctx.beginPath();
+            ctx.arc(65 + i * 20, 65, 6, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.direction = "ltr";
+          ctx.fillStyle = token("--muted");
+          ctx.font = "20px Courier New";
+          ctx.textAlign = "center";
+          ctx.fillText("iraqi_programmer_day.exe", 600, 72);
+          ctx.fillStyle = accent;
+          ctx.font = "20px Courier New";
+          ctx.fillText("// HELLO, WORLD. HELLO, IRAQ.", 600, 150);
+          ctx.font = (template === "minimal" ? "" : "bold ") + "190px Courier New";
+          ctx.fillText("10.10", 600, 325);
+          ctx.direction = "rtl";
+          ctx.fillStyle = token("--ink");
+          ctx.font = "48px Tahoma, Arial";
+          ctx.fillText("يوم المبرمج العراقي", 600, 400);
+          if (template === "terminal") {
+            ctx.direction = "ltr";
+            ctx.font = "24px Courier New";
+            ctx.fillStyle = accent;
+            ctx.fillText("const wish = { bugs: 0, dreams: Infinity };", 600, 453);
+            ctx.direction = "rtl";
+          }
+          if ($("recipient").value) {
+            ctx.font = "28px Tahoma, Arial";
+            ctx.fillStyle = accent;
+            ctx.fillText("إلى " + $("recipient").value, 600, messageY);
+          }
+          ctx.fillStyle = token("--ink");
+          ctx.font = font + "px Tahoma, Arial";
+          lines.forEach((line, i) => ctx.fillText(line, 600, messageY + 70 + i * lineHeight));
+          ctx.font = "24px Tahoma, Arial";
+          ctx.fillStyle = token("--muted");
+          ctx.textAlign = "right";
+          ctx.fillText(
+            $("sender").value ? "بكل محبة، " + $("sender").value : "صُنعت بشغف، وأُرسلت بمحبة",
+            1135,
+            c.height - 70,
+          );
+          ctx.direction = "ltr";
+          ctx.textAlign = "left";
+          ctx.font = "20px Courier New";
+          ctx.fillStyle = accent;
+          ctx.fillText("< code a wish />", 65, c.height - 70);
+          return c;
+        }
+        function blobCard() {
+          return new Promise((resolve, reject) => {
+            try {
+              canvasCard().toBlob(
+                (blob) => (blob ? resolve(blob) : reject(new Error("export"))),
+                "image/png",
+              );
+            } catch (e) {
+              reject(e);
+            }
+          });
+        }
+        $("download").addEventListener("click", async () => {
+          try {
+            const blob = await blobCard();
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "code-a-wish-10-10.png";
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(url), 10000);
+            toast("بطاقتك جاهزة، كل عام وأنتم مبدعون 💚");
+          } catch (e) {
+            toast("تعذّر تنزيل الصورة. جرّب متصفحًا حديثًا.");
+          }
+        });
+        $("share").addEventListener("click", async () => {
+          const text = [
+            $("recipient").value ? "إلى " + $("recipient").value : "يوم المبرمج العراقي 10.10",
+            $("message").value,
+            $("sender").value ? "من " + $("sender").value : "",
+            "Code a Wish · 10.10",
+          ]
+            .filter(Boolean)
+            .join("\n");
+          try {
+            if (navigator.share) {
+              const blob = await blobCard();
+              const file = new File([blob], "code-a-wish.png", { type: "image/png" });
+              if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({ files: [file], title: "Code a Wish", text });
+                return;
+              }
+              await navigator.share({ title: "Code a Wish", text });
+              return;
+            }
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              const input = document.createElement("textarea");
+              input.value = text;
+              input.style.position = "fixed";
+              input.style.opacity = "0";
+              document.body.append(input);
+              input.select();
+              const copied = document.execCommand("copy");
+              input.remove();
+              if (!copied) throw new Error("clipboard");
+            }
+            toast("تم نسخ التهنئة، أرسلها لمن تحب 💚");
+          } catch (e) {
+            if (e.name !== "AbortError")
+              toast("المشاركة غير متاحة هنا؛ نزّل البطاقة وأرسلها كصورة.");
+          }
+        });
+        update();
+      })();
+    </script>
+  </body>
+</html>
